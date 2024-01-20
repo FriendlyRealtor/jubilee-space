@@ -546,7 +546,7 @@ const HouseHunter = () => {
   return (
     <Container
       seoProps={{
-        title: 'FriendlyRealtor - My Profile',
+        title: 'JubileeSpace - My Profile',
         noindex: true,
       }}
     >

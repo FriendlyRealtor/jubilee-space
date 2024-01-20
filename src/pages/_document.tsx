@@ -27,7 +27,7 @@ export default function Document() {
                 "@context": "http://schema.org",
                 "@type": "WebPage",
                 "name": "Jubilee Investments LLC",
-                "description": "FriendlyRealtor platform streamlines the process of matching home buyers with top-producing agents, ensuring you find the best fit for your needs.",
+                "description": "JubileeSpace platform streamlines the process of matching home buyers with top-producing agents, ensuring you find the best fit for your needs.",
                 "publisher": {
                   "@type": "service",
                   "name": "Jubilee Investments LLC"
@@ -321,7 +321,7 @@ export default function Document() {
                 "@context": "https://schema.org",
                 "@type": "Article",
                 "headline": "Our Mission",
-                "description": "At FriendlyRealtor, we're your trusted partner on the path to homeownership. Our dedication is to help individuals and families turn their homeownership dreams into reality within the next 3-5 years. Friendly Realtor Montrell Montrell Jubilee, Founder & CEO Montrell's remarkable journey began on the scenic Eastern Shore of Virginia and Maryland, where he spent his formative years surrounded by the beauty of nature and the warmth of close-knit communities. With an unwavering passion for technology and innovation, he embarked on his educational path, ultimately finding his way to Towson University, where he delved deep into the world of computer science. His academic pursuits not only honed his technical skills but also instilled in him a profound appreciation for the possibilities of the digital age. Upon graduating, Montrell made a deliberate choice to immerse himself in the bustling and diverse landscape of Baltimore and Towson. Over the past four years, he has cultivated a rich tapestry of relationships and professional connections that have contributed to both his personal and career growth. His experiences have been instrumental in shaping FriendlyRealtor into the trusted entity it is today.",
+                "description": "At JubileeSpace, we're your trusted partner on the path to homeownership. Our dedication is to help individuals and families turn their homeownership dreams into reality within the next 3-5 years. JubileeSpace Montrell Montrell Jubilee, Founder & CEO Montrell's remarkable journey began on the scenic Eastern Shore of Virginia and Maryland, where he spent his formative years surrounded by the beauty of nature and the warmth of close-knit communities. With an unwavering passion for technology and innovation, he embarked on his educational path, ultimately finding his way to Towson University, where he delved deep into the world of computer science. His academic pursuits not only honed his technical skills but also instilled in him a profound appreciation for the possibilities of the digital age. Upon graduating, Montrell made a deliberate choice to immerse himself in the bustling and diverse landscape of Baltimore and Towson. Over the past four years, he has cultivated a rich tapestry of relationships and professional connections that have contributed to both his personal and career growth. His experiences have been instrumental in shaping JubileeSpace into the trusted entity it is today.",
                 "image": ["https://jubileespace.com/_next/static/media/montrell.695da4c3.jpg"],
                 "datePublished": "2023-01-01T08:00:00+08:00",
                 "dateModified": "2023-11-11T09:20:00+08:00",
@@ -488,14 +488,14 @@ export default function Document() {
               {
                 "@context": "https://schema.org",
                 "@type": "Blogposting",
-                "headline": "Homes By Friendly Realtor",
-                "description": "HomesByFriendlyRealtor - Find Your Dream Home Here FriendlyRealtor Real Estate Corporation Official Newsletter Are you looking for some tips on home buying? If so, you've come to the right place! We are a team of experts who help home buyers measure their success towards homeownership. We know how challenging and rewarding it can be to buy your own home, and we want to share our knowledge and experience with you. That's why we created this newsletter, where we will send you weekly tips, advice, and resources on topics such as: How to assess your financial readiness for homeownership? How to find the best mortgage option for your situation? How to negotiate with sellers and agents? How to prepare for the closing process? How to maintain and improve your home value? Your Path to Homeownership Assessing Your Financial Readiness for Homeownership Ready to buy a home? It starts with ensuring financial stability. Check for: A stable income A solid credit score A manageable debt-to-income ratio Savings for a down payment and closing costs Don't forget to consider ongoing expenses like property taxes, insurance, maintenance, repairs, and utilities. Seek expert guidance from financial planners or mortgage lenders for a comprehensive assessment.",
+                "headline": "Homes By JubileeSpace",
+                "description": "HomesByJubileeSpace - Find Your Dream Home Here JubileeSpace Real Estate Corporation Official Newsletter Are you looking for some tips on home buying? If so, you've come to the right place! We are a team of experts who help home buyers measure their success towards homeownership. We know how challenging and rewarding it can be to buy your own home, and we want to share our knowledge and experience with you. That's why we created this newsletter, where we will send you weekly tips, advice, and resources on topics such as: How to assess your financial readiness for homeownership? How to find the best mortgage option for your situation? How to negotiate with sellers and agents? How to prepare for the closing process? How to maintain and improve your home value? Your Path to Homeownership Assessing Your Financial Readiness for Homeownership Ready to buy a home? It starts with ensuring financial stability. Check for: A stable income A solid credit score A manageable debt-to-income ratio Savings for a down payment and closing costs Don't forget to consider ongoing expenses like property taxes, insurance, maintenance, repairs, and utilities. Seek expert guidance from financial planners or mortgage lenders for a comprehensive assessment.",
                 "image": ["https://images.ctfassets.net/v3wxyl8kvdve/2knFMjLoad34BBwrDHLsPr/344ea6165326586215ce5e4b7d5f6cea/home__real_estate__home_design_logo.png"],
                 "datePublished": "2023-11-01T08:00:00+08:00",
                 "dateModified": "2023-11-11T09:20:00+08:00",
                 "author": [{
                   "@type": "Person",
-                  "name": "Friendly Realtor",
+                  "name": "JubileeSpace",
                   "url": "https://jubileespace.com/blogs/homes-by-friendly-realtor"
                 }]
               }
@@ -593,14 +593,14 @@ export default function Document() {
               {
                 "@context": "https://schema.org",
                 "@type": "Blogposting",
-                "headline": "Homes By Friendly Realtor",
-                "description": "HomesByFriendlyRealtor - Find Your Dream Home Here FriendlyRealtor Real Estate Corporation Official Newsletter Are you looking for some tips on home buying? If so, you've come to the right place! We are a team of experts who help home buyers measure their success towards homeownership. We know how challenging and rewarding it can be to buy your own home, and we want to share our knowledge and experience with you. That's why we created this newsletter, where we will send you weekly tips, advice, and resources on topics such as: How to assess your financial readiness for homeownership? How to find the best mortgage option for your situation? How to negotiate with sellers and agents? How to prepare for the closing process? How to maintain and improve your home value? Your Path to Homeownership Assessing Your Financial Readiness for Homeownership Ready to buy a home? It starts with ensuring financial stability. Check for: A stable income A solid credit score A manageable debt-to-income ratio Savings for a down payment and closing costs Don't forget to consider ongoing expenses like property taxes, insurance, maintenance, repairs, and utilities. Seek expert guidance from financial planners or mortgage lenders for a comprehensive assessment.",
+                "headline": "Homes By JubileeSpace",
+                "description": "HomesByJubileeSpace - Find Your Dream Home Here JubileeSpace Real Estate Corporation Official Newsletter Are you looking for some tips on home buying? If so, you've come to the right place! We are a team of experts who help home buyers measure their success towards homeownership. We know how challenging and rewarding it can be to buy your own home, and we want to share our knowledge and experience with you. That's why we created this newsletter, where we will send you weekly tips, advice, and resources on topics such as: How to assess your financial readiness for homeownership? How to find the best mortgage option for your situation? How to negotiate with sellers and agents? How to prepare for the closing process? How to maintain and improve your home value? Your Path to Homeownership Assessing Your Financial Readiness for Homeownership Ready to buy a home? It starts with ensuring financial stability. Check for: A stable income A solid credit score A manageable debt-to-income ratio Savings for a down payment and closing costs Don't forget to consider ongoing expenses like property taxes, insurance, maintenance, repairs, and utilities. Seek expert guidance from financial planners or mortgage lenders for a comprehensive assessment.",
                 "image": ["https://images.ctfassets.net/v3wxyl8kvdve/2knFMjLoad34BBwrDHLsPr/344ea6165326586215ce5e4b7d5f6cea/home__real_estate__home_design_logo.png"],
                 "datePublished": "2023-11-01T08:00:00+08:00",
                 "dateModified": "2023-11-11T09:20:00+08:00",
                 "author": [{
                   "@type": "Person",
-                  "name": "Friendly Realtor",
+                  "name": "JubileeSpace",
                   "url": "https://jubileespace.com/blogs/homes-by-friendly-realtor"
                 }]
               }

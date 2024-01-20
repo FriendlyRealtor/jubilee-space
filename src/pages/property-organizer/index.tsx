@@ -5,7 +5,7 @@ const PropertyOrganizerPage = () => {
   return (
     <Container
       seoProps={{
-        title: 'FriendlyRealtor - Property Organizer',
+        title: 'JubileeSpace - Property Organizer',
       }}
     >
       <div id="content-container" />

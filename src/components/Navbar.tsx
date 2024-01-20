@@ -44,7 +44,7 @@ const NavBar = () => {
       <div className="gap-10 mb-10 lg:flex hidden items-center justify-between">
         <Image
           src={logo}
-          alt="friendlyRealtor"
+          alt="jubileeSpace"
           className="w-[100px] cursor-pointer"
           onClick={() => router.push('/')}
         />
@@ -100,7 +100,7 @@ const NavBar = () => {
       <div className="lg:hidden flex flex-1 justify-between items-center mb-8">
         <Image
           src={logo}
-          alt="friendlyRealtor"
+          alt="jubileeSpace"
           className="w-[100px] cursor-pointer"
           onClick={() => router.push('/')}
         />

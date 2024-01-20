@@ -73,7 +73,7 @@ const EventCenterPage = () => {
   return (
     <Container
       seoProps={{
-        title: 'FriendlyRealtor - Find Nearby Events In your area',
+        title: 'JubileeSpace - Find Nearby Events In your area',
       }}
       className="min-h-screen bg-gray-100 py-6 px-4"
     >

@@ -176,7 +176,7 @@ export const LoginModal = ({ mobile = false }) => {
         closeXClassName="text-black"
       >
         <div className="text-center mb-4">
-          <h2 className="text-2xl font-bold">Login to FriendlyRealtor</h2>
+          <h2 className="text-2xl font-bold">Login to JubileeSpace</h2>
         </div>
         <Formik
           initialValues={{

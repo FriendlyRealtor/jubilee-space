@@ -90,7 +90,7 @@ const Tools = () => {
   return (
     <Container
       seoProps={{
-        title: 'FriendlyRealtor - AI-Powered Home Buying Guidance',
+        title: 'JubileeSpace - AI-Powered Home Buying Guidance',
       }}
       className="min-h-screen"
     >

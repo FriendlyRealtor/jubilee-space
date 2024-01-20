@@ -50,7 +50,7 @@ const FindARealtorPage = ({ users }) => {
   return (
     <Container
       seoProps={{
-        title: 'FriendlyRealtor - Discover a Friendly Realtor in your area',
+        title: 'JubileeSpace - Discover a Friendly Realtor in your area',
         description:
           'Discover your ideal real estate agent to navigate the home buying process with confidence. Explore options and find expert guidance today!',
       }}
@@ -58,9 +58,9 @@ const FindARealtorPage = ({ users }) => {
       <div className="text-center pb-8">
         <Header as="h1">Discover Your Friendly Realtor in the Neighborhood</Header>
         <div className="text-lg mt-2">
-          Welcome to FriendlyRealtor, your trusted platform for connecting with top-notch real
-          estate professionals in your area. Whether you're buying, selling, or just exploring,
-          we're here to make your real estate journey seamless and enjoyable.
+          Welcome to JubileeSpace, your trusted platform for connecting with top-notch real estate
+          professionals in your area. Whether you're buying, selling, or just exploring, we're here
+          to make your real estate journey seamless and enjoyable.
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

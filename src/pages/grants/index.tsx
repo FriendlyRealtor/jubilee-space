@@ -28,7 +28,7 @@ const AllGrantsPage = ({ grants }) => {
   return (
     <Container
       seoProps={{
-        title: `${grantFields.grantName} - FriendlyRealtor`,
+        title: `${grantFields.grantName} - JubileeSpace`,
         description:
           'Discover a variety of home buying programs to suit your needs. Learn more about different grants and assistance available for homebuyers.',
       }}
