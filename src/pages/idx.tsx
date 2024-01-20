@@ -42,7 +42,7 @@ const InternalPage = () => {
   return (
     <Container
       seoProps={{
-        title: 'FriendlyRealtor - Idx',
+        title: 'JubileeSpace - Idx',
       }}
     >
       <div id="content-container" />

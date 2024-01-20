@@ -165,7 +165,7 @@ const ProfilePage = ({ data }) => {
   return (
     <Container
       seoProps={{
-        title: `FriendlyRealtor - Agent ${data.name}`,
+        title: `JubileeSpace - Agent ${data.name}`,
         description: `${data.bio || defaultSeoBio}`,
       }}
     >

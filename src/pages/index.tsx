@@ -23,9 +23,9 @@ const HomePage = () => {
   return (
     <Container
       seoProps={{
-        title: 'FriendlyRealtor - Home',
+        title: 'JubileeSpace - Home',
         description:
-          'FriendlyRealtor platform streamlines the process of matching home buyers with top-producing agents, ensuring you find the best fit for your needs.',
+          'JubileeSpace platform streamlines the process of matching home buyers with top-producing agents, ensuring you find the best fit for your needs.',
       }}
     >
       <DefaultHero

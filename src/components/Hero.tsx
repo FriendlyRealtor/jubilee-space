@@ -46,7 +46,7 @@ const Hero = () => {
       <div className="mt-4 md:mt-0">
         <Image
           src={friendlyrealtor}
-          alt="friendly_realtor_image"
+          alt="jubilee_space_image"
           className="w-full md:w-[40rem] h-auto"
         />
       </div>

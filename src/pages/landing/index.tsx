@@ -15,9 +15,9 @@ const LandingPage = () => {
   return (
     <Container
       seoProps={{
-        title: 'FriendlyRealtor - Dream Home Awaits',
+        title: 'JubileeSpace - Dream Home Awaits',
         description:
-          'Explore first-time homebuyer programs, read informative blogs, and discover your dream home with FriendlyRealtor. Sign up for our newsletter for valuable tips and trends in home management.',
+          'Explore first-time homebuyer programs, read informative blogs, and discover your dream home with JubileeSpace. Sign up for our newsletter for valuable tips and trends in home management.',
       }}
       className="text-white"
     >
@@ -36,11 +36,11 @@ const LandingPage = () => {
         </AddLink>
 
         <div className="text-center">
-          <Header as="h1">Discover Your Dream Home with FriendlyRealtor!</Header>
+          <Header as="h1">Discover Your Dream Home with JubileeSpace!</Header>
           <p className="mt-4 text-sm sm:text-lg leading-6">
-            Welcome to FriendlyRealtor, your gateway to homeownership dreams. Let us guide you
-            through the journey, offering resources, home listings, and personalized tools. Register
-            today to turn your dreams into reality with expert support every step of the way!
+            Welcome to JubileeSpace, your gateway to homeownership dreams. Let us guide you through
+            the journey, offering resources, home listings, and personalized tools. Register today
+            to turn your dreams into reality with expert support every step of the way!
           </p>
 
           <div className="mt-8 space-y-6">
@@ -65,8 +65,8 @@ const LandingPage = () => {
               <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg">
                 <blockquote className="text-sm sm:text-lg font-medium text-gray-800">
                   "Finding our dream home in Baltimore seemed like an impossible task, but with the
-                  help of FriendlyRealtor, our dream became a reality. They didn't just help us buy
-                  a house; they helped us measure our journey to homeownership. We're forever
+                  help of JubileeSpace, our dream became a reality. They didn't just help us buy a
+                  house; they helped us measure our journey to homeownership. We're forever
                   grateful!"
                 </blockquote>
                 <p className="mt-2 text-gray-600">- Sarah and Mark D.</p>
@@ -75,10 +75,10 @@ const LandingPage = () => {
               {/* Testimonial Card 2 */}
               <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg">
                 <blockquote className="text-sm sm:text-lg font-medium text-gray-800">
-                  "FriendlyRealtor made our experience of finding a home in Baltimore so much
-                  smoother. They not only understood our emotional journey but also provided
-                  valuable guidance on measuring our path to homeownership. Thanks to them, we now
-                  have a place where beautiful memories are created."
+                  "JubileeSpace made our experience of finding a home in Baltimore so much smoother.
+                  They not only understood our emotional journey but also provided valuable guidance
+                  on measuring our path to homeownership. Thanks to them, we now have a place where
+                  beautiful memories are created."
                 </blockquote>
                 <p className="mt-2 text-gray-600">- Lisa and John S.</p>
               </div>
@@ -86,10 +86,10 @@ const LandingPage = () => {
               {/* Testimonial Card 3 */}
               <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg">
                 <blockquote className="text-sm sm:text-lg font-medium text-gray-800">
-                  "We never thought owning a home in Baltimore could be so wonderful.
-                  FriendlyRealtor helped us not only find our dream home but also guided us in
-                  understanding the path to homeownership. With their support, we've made memories
-                  that will last a lifetime."
+                  "We never thought owning a home in Baltimore could be so wonderful. JubileeSpace
+                  helped us not only find our dream home but also guided us in understanding the
+                  path to homeownership. With their support, we've made memories that will last a
+                  lifetime."
                 </blockquote>
                 <p className="mt-2 text-gray-600">- Michael and Emily G.</p>
               </div>

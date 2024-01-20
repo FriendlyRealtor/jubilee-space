@@ -171,7 +171,7 @@ const EventPage = ({ data }) => {
   return (
     <Container
       seoProps={{
-        title: `${event.title} - FriendlyRealtor` || '',
+        title: `${event.title} - JubileeSpace` || '',
         description: event.description || '',
         openGraph: {
           images: [

@@ -7,7 +7,7 @@ const ListingPage = () => {
   return (
     <Container
       seoProps={{
-        title: 'FriendlyRealtor - Listing(s)',
+        title: 'JubileeSpace - Listing(s)',
       }}
     >
       <div id="content-container" />

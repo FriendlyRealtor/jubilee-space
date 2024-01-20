@@ -5,7 +5,7 @@ const ContactPage = () => {
   return (
     <Container
       seoProps={{
-        title: 'FriendlyRealtor - Contact Us',
+        title: 'JubileeSpace - Contact Us',
       }}
     >
       <div id="content-container" />
