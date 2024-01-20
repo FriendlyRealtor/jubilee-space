@@ -1,0 +1,14 @@
+# *
+User-agent: *
+Disallow: /404
+
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://jubileespace.com/
+
+# Sitemaps
+Sitemap: https://jubileespace.com/sitemap.xml
+Sitemap: https://jubileespace.com/server-sitemap.xml
