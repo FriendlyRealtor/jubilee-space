@@ -3,17 +3,14 @@ module.exports = {
   headers() {
     return [
       {
-        source: "/.well-known/apple-app-site-association",
-        headers: [{ key: "content-type", value: "application/json" }],
+        source: '/.well-known/apple-app-site-association',
+        headers: [{ key: 'content-type', value: 'application/json' }],
       },
     ];
   },
-  expirmental: {
-    appDir: true,
-  },
   reactStrictMode: true,
   images: {
-    domains: ["firebasestorage.googleapis.com"],
+    domains: ['firebasestorage.googleapis.com'],
     unoptimized: true,
   },
   eslint: {
