@@ -34,10 +34,10 @@ const Hero = () => {
           </Button>
         </div>
         <div className="md:mb-6 text-4xl md:text-6xl font-light mb-6">
-          Empowering Realtors Together
+          Empowering Agents Together
         </div>
         <div className="mb-4">
-          Embark on a seamless realtor empowerment journey with our innovative platform. Experience
+          Embark on a seamless agent empowerment journey with our innovative platform. Experience
           the benefits of our free event hosting feature, effortlessly connecting with attendees.
           Simplifying event coordination and prioritizing local connections, the Event Center
           catalyzes trust, fostering a community where networking transforms real estate success.

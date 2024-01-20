@@ -151,8 +151,8 @@ const ProfilePage = ({ data }) => {
     }
   };
 
-  const defaultBio = `Experienced realtor ${data.name} dedicated to helping home buyers find their dream homes. Trustworthy guidance and exceptional service for a seamless home buying experience. Let's make your homeownership dreams a reality.`;
-  const defaultSeoBio = `Experienced realtor ${
+  const defaultBio = `Experienced agent ${data.name} dedicated to helping home buyers find their dream homes. Trustworthy guidance and exceptional service for a seamless home buying experience. Let's make your homeownership dreams a reality.`;
+  const defaultSeoBio = `Experienced agent ${
     data.name
   } dedicated to helping home buyers find their dream homes${
     data.serviceZipCodes && data.serviceZipCodes.length > 0

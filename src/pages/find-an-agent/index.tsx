@@ -7,7 +7,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import moment from 'moment';
 import _ from 'lodash';
 
-const FindARealtorPage = ({ users }) => {
+const FindAnAgentPage = ({ users }) => {
   const [realtors, setRealtors] = useState([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [serviceAreas, setServiceAreas] = useState<string[]>([]);
@@ -50,13 +50,13 @@ const FindARealtorPage = ({ users }) => {
   return (
     <Container
       seoProps={{
-        title: 'JubileeSpace - Discover a Friendly Realtor in your area',
+        title: 'JubileeSpace - Discover a Friendly Agent in your area',
         description:
           'Discover your ideal real estate agent to navigate the home buying process with confidence. Explore options and find expert guidance today!',
       }}
     >
       <div className="text-center pb-8">
-        <Header as="h1">Discover Your Friendly Realtor in the Neighborhood</Header>
+        <Header as="h1">Discover Your Friendly Agent in the Neighborhood</Header>
         <div className="text-lg mt-2">
           Welcome to JubileeSpace, your trusted platform for connecting with top-notch real estate
           professionals in your area. Whether you're buying, selling, or just exploring, we're here
@@ -179,4 +179,4 @@ export async function getStaticProps() {
   }
 }
 
-export default FindARealtorPage;
+export default FindAnAgentPage;

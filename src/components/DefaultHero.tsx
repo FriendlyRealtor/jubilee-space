@@ -53,7 +53,7 @@ const DefaultHero = (props: HeroProps) => {
                   className="!text-black md:ml-2"
                   onClick={() => {
                     fbEvent('home_hero_cta', {
-                      content_name: 'talk to realtor',
+                      content_name: 'talk to an agent',
                       content_category: 'user_interaction',
                       value: 1,
                     });
@@ -61,13 +61,13 @@ const DefaultHero = (props: HeroProps) => {
                     gtagEvent({
                       action: 'home_hero_cta',
                       category: 'user_interaction',
-                      label: 'talk to realtor',
+                      label: 'talk to an agent',
                       value: 1,
                     });
-                    router.push({ pathname: `${router.pathname}/find-a-realtor` });
+                    router.push({ pathname: `${router.pathname}/find-an-agent` });
                   }}
                 >
-                  Talk To Live Realtor
+                  Talk To Live Agent
                 </Button>
               </div>
             )}
