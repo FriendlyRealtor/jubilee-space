@@ -6,7 +6,7 @@ const ServicesPage = () => {
   return (
     <Container
       seoProps={{
-        title: 'JubileeSpace - Realtor Services',
+        title: 'JubileeSpace - Agent Services',
         description:
           'Tailored exclusively for agents, our toolkit provides resources to elevate your real estate expertise. Join our Event Center to discover opportunities and unlock benefits for your real estate success.',
       }}

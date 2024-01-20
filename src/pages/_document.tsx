@@ -264,8 +264,8 @@ export default function Document() {
                     "@type": "ListItem",
                     "position": 2,
                     "item": {
-                      "@id": "https://jubileespace.com/find-a-realtor",
-                      "name": "Find A Realtor"
+                      "@id": "https://jubileespace.com/find-an-agent",
+                      "name": "Find An Agent"
                     }
                   },
                   {

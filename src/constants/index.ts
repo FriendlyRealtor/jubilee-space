@@ -51,8 +51,8 @@ export const communities = [
 
 export const navLinks = [
   {
-    id: '/find-a-realtor',
-    title: 'Find A Realtor',
+    id: '/find-an-agent',
+    title: 'Find An Agent',
   },
   {
     id: '/find-homes',
@@ -98,7 +98,7 @@ export const features = [
   {
     id: 'feature-0',
     icon: star,
-    title: 'Seamless Realtor Events',
+    title: 'Seamless Agent Events',
     content: `Experience the benefits of our event hosting feature – it's free to download and use! Host and promote your events, allowing attendees to connect with you directly. Agents can acquire leads in real-time through our mobile app, making event management a breeze.`,
   },
   {
@@ -106,7 +106,7 @@ export const features = [
     icon: quotes,
     title: 'Building Community Trust',
     content:
-      'Facilitate community trust by simplifying event coordination. Strategically plan and manage gatherings, prioritizing local connections to enhance realtor engagement—all through the Event Center.',
+      'Facilitate community trust by simplifying event coordination. Strategically plan and manage gatherings, prioritizing local connections to enhance agents engagement—all through the Event Center.',
   },
   {
     id: 'feature-2',
@@ -187,7 +187,7 @@ export const footerLinks = [
       },
       {
         href: '/services',
-        name: 'For Realtors',
+        name: 'For Agents',
       },
       {
         href: 'https://join.homeactions.net/signup/MontrellJubilee',

@@ -24,7 +24,7 @@ const BlogPage = ({ data }) => {
     : '/logo.png';
   const imgAlt = blogPost.fields.featureImage
     ? blogPost.fields.featureImage.fields.title
-    : 'Friendly Realtor Photo';
+    : 'JubileeSpace Agent Photo';
 
   return (
     <Container

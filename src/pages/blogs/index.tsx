@@ -34,13 +34,13 @@ const AllBlogPage = () => {
   return (
     <Container
       seoProps={{
-        title: 'JubileeSpace - Discover Friendly Realtors Blog Post',
+        title: 'JubileeSpace - Discover JubileeSpaces Blog Post',
         description:
-          'Explore our latest blog post to discover valuable insights and tips from friendly realtors.',
+          'Explore our latest blog post to discover valuable insights and tips from friendly agents.',
       }}
     >
       <Header as="h1" className="pb-8 text-center">
-        Discover Friendly Realtors Blog Post
+        Discover JubileeSpace Blog Post
       </Header>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {currentPosts.map((post) => (
