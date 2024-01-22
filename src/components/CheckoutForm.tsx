@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Elements, ElementsConsumer, PaymentElement } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { Button } from './UI';
+import { fbEvent, gtagEvent } from '../utils/analyticsUtil';
 
 const PaymentForm = ({ eventId, stripe, elements, setCheckoutError, totalAmount, cost }) => {
   const [saving, setSaving] = useState<boolean>(false);
@@ -26,6 +27,19 @@ const PaymentForm = ({ eventId, stripe, elements, setCheckoutError, totalAmount,
       if (result.error) {
         setCheckoutError(result.error.message || 'Error occurred on payment');
       }
+
+      fbEvent(`payment-for-${event.id || ''}`, {
+        content_name: 'payed_event',
+        content_category: 'user_interaction',
+        value: totalAmount.toFixed(2),
+      });
+
+      gtagEvent({
+        action: `payment-for-${event.id || ''}`,
+        category: 'user_interaction',
+        label: 'payed_event',
+        value: totalAmount.toFixed(2),
+      });
     } finally {
       setSaving(false);
     }
