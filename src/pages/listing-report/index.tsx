@@ -32,6 +32,18 @@ const ListingReportPage = () => {
   const selectedMarket = realEstateMarkets.find((market) => market.id === id);
   const newDescription = `JubileeSpace has homes for sale in ${selectedMarket?.name}. View listing photos, review sales history, and use our detailed real estate filters to find the perfect place.`;
 
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.innerHTML = `
+      document.currentScript.replaceWith(ihfKestrel.render());
+    `;
+
+    const contentContainer = document.querySelector('#content-container');
+    if (contentContainer) {
+      contentContainer.appendChild(script);
+    }
+  }, []);
+
   return (
     <Container
       seoProps={{
