@@ -1,6 +1,7 @@
 import { DefaultHero } from '../components';
-import { AddLink, Header, Container } from '../components/UI';
+import { AddLink, Header, Container, Button } from '../components/UI';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 const QuickSearch = () => {
   const script = `
@@ -20,6 +21,8 @@ const QuickSearch = () => {
   return <div dangerouslySetInnerHTML={{ __html: `<script>${script}</script>` }} />;
 };
 const HomePage = () => {
+  const router = useRouter();
+
   const realEstateMarkets = [
     {
       name: 'Washington Dc',
@@ -62,12 +65,15 @@ const HomePage = () => {
         </Header>
         <div className="flex flex-wrap flex-row justify-between my-6">
           {realEstateMarkets.map((market) => (
-            <AddLink
-              to={`/listing-report?id=${market.id}`}
-              className="text-2xl text-blue-500 hover:text-blue-400"
+            <Button
+              onClick={() => {
+                router.push(`/listing-report?id=${market.id}`);
+              }}
+              color="secondary"
+              className="text-2xl text-white"
             >
               <div>{market.name}</div>
-            </AddLink>
+            </Button>
           ))}
         </div>
         {/*<QuickSearch />*/}
