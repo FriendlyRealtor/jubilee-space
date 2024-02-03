@@ -45,7 +45,7 @@ const NavBar = () => {
         <Image
           src={logo}
           alt="jubileeSpace"
-          className="w-[144px] cursor-pointer"
+          className="w-[244px] cursor-pointer"
           onClick={() => router.push('/')}
         />
         <ul className="flex list-none justify-end items-center">

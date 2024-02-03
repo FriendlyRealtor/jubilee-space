@@ -52,31 +52,27 @@ export const communities = [
 export const navLinks = [
   {
     id: '/find-an-agent',
-    title: 'Find An Agent',
+    title: 'Agent Services',
   },
   {
     id: '/grants',
-    title: 'Find Loan Programs',
+    title: 'Loan Programs',
   },
   {
     id: '/event-center',
-    title: 'Find Nearby Events',
+    title: 'Seminars',
   },
   {
     id: 'https://join.homeactions.net/signup/MontrellJubilee',
-    title: 'Join Newsletter',
+    title: 'Newsletter',
   },
-  /*{
-    id: '/tools',
-    title: 'AI Tools',
-  },*/
   {
     id: '/blogs',
     title: 'Blogs',
   },
   {
     id: '/mission',
-    title: 'Mission Statement',
+    title: 'About',
   },
 ];
 
@@ -174,6 +170,10 @@ export const footerLinks = [
       {
         href: 'https://join.homeactions.net/signup/MontrellJubilee',
         name: 'Newsletter',
+      },
+      {
+        name: 'Contact',
+        email: 'contact@friendlyrealtor.app',
       },
     ],
   },

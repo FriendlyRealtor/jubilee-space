@@ -19,7 +19,7 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>((props: Sw
   }, [label, checked]);
 
   return (
-    <label htmlFor={fieldId} className="relative flex items-center cursor-pointer gap-2">
+    <label htmlFor={fieldId} className="relative flex items-center cursor-pointer gap-2 text-black">
       <input
         id={fieldId}
         className="sr-only peer"
