@@ -74,12 +74,8 @@ const FindAnAgentPage = ({ users }) => {
                   <Header as="h4" className="font-semibold mb-2">
                     {realtor.data.name}
                   </Header>
-                  {realtor.data.serviceZipCodes && realtor.data.serviceZipCodes.length > 0 ? (
-                    <p className="mt-2">Service Areas: {realtor.data.serviceZipCodes.join(', ')}</p>
-                  ) : (
-                    realtor.data.location && (
-                      <p className="mt-2">{`Service Areas: ${realtor.data.location}`}</p>
-                    )
+                  {realtor.data.location && (
+                    <p className="mt-2">{`Location: ${realtor.data.location}`}</p>
                   )}
                 </div>
               </Link>

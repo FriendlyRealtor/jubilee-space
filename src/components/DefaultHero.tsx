@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import { StaticImageData } from 'next/image';
-import { Header, AddLink, Button } from './UI';
-import { RegisterModal } from './RegisterModal';
-import { useAuthContext } from '../context';
-import { useRouter } from 'next/router';
+import { AddLink, Button } from './UI';
 import { fbEvent, gtagEvent } from '../utils/analyticsUtil';
+import { Select } from '../components/UI/Select';
+import { Switch } from '../components/UI/Switch';
+import Image from 'next/image';
 
 export type HeroProps = {
   src?: StaticImageData;
@@ -14,81 +14,127 @@ export type HeroProps = {
 };
 
 const DefaultHero = (props: HeroProps) => {
-  const { title, subTitle, src, showRegister } = props;
-  const { user } = useAuthContext();
-  const router = useRouter();
+  const { title, subTitle, src, showRegister, realtors } = props;
+
+  const [loading, setLoading] = useState<boolean>(false);
+  const [special, setSpecial] = useState('');
+  const [language, setLanguage] = useState('');
+  const [zipCode, setZipCode] = useState<number>(0);
+  const [realtor, setRealtor] = useState(undefined);
+
+  const languageOptions = [
+    { value: 'english', label: 'English' },
+    { value: 'spanish', label: 'Spanish' },
+    { value: 'arabic', label: 'Arabic' },
+  ];
+
+  // Buyer/Seller Agent options
+  const agentOptions = [
+    { value: 'buyer', label: 'Buyer Agent' },
+    { value: 'seller', label: 'Seller Agent' },
+    { value: 'foreclosure', label: 'Foreclosure' },
+    { value: 'short-sale', label: 'Short Sale' },
+    { value: 'consulting', label: 'Consulting' },
+    { value: 'relocation', label: 'Relocation' },
+  ];
+
+  const handleClick = useCallback(() => {
+    setLoading(true);
+
+    // Assuming fbEvent and gtagEvent are functions defined elsewhere
+    fbEvent('try_me', {
+      content_name: 'find a realtor',
+      content_category: 'user_interaction',
+      value: 1,
+    });
+
+    gtagEvent({
+      action: 'try_me',
+      category: 'user_interaction',
+      label: 'find a realtor',
+      value: 1,
+    });
+
+    const filteredRealtors = realtors.filter((realtor) => {
+      const zipCodeIncluded = realtor?.data?.serviceZipCodes?.includes(zipCode);
+      const languageMatches = !language || realtor?.data?.language === language;
+      const specialMatches = !special || realtor?.data?.special === special;
+
+      return zipCodeIncluded && (languageMatches || specialMatches);
+    });
+
+    if (filteredRealtors.length > 0) {
+      // Adding a 1-second timeout
+      setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * filteredRealtors.length);
+        const randomRealtor = filteredRealtors[randomIndex];
+        setRealtor(randomRealtor);
+        setLoading(false);
+      }, 1000); // 1000 milliseconds = 1 second
+    } else {
+      // Adding a 1-second timeout
+      setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * realtors.length);
+        const randomRealtor = realtors[randomIndex];
+        setRealtor(randomRealtor);
+        setLoading(false);
+      }, 1000); // 1000 milliseconds = 1 second
+    }
+  }, [language, special, zipCode]);
 
   return (
-    <div
-      className="relative w-full p-8"
-      style={{
-        backgroundSize: 'cover',
-        backgroundImage: `url(${
-          src ||
-          'https://images.ctfassets.net/v3wxyl8kvdve/2EYGoz57XC6NwjTKGc0vly/2c7f80b8e6528154099618978ed059d3/happy-buyers01.jpg'
-        })`,
-      }}
-    >
-      <div className="flex flex-col md:flex-row">
-        <div className="w-full md:w-1/2">
-          <div className="flex flex-col justify-center text-white z-10 mx-4 my-8 md:ml-8 md:mr-4">
-            <Header as="h3" className="font-bold leading-tight mt-4 text-black">
-              {title}
-            </Header>
-            <p className="text-lg leading-tight text-black max-w-sm mb-2 pt-2 pb-4 md:max-w-none md:pb-0 md:pl-4 md:pr-8">
-              {subTitle}
-            </p>
-            {showRegister && user ? (
-              <AddLink
-                to="/profile"
-                className="w-fit rounded-full leading-5 tracking-tight border-sm text-center bg-blue-500 py-1 px-4 gap-2 text-sm true hover:bg-blue-400 cursor-pointer focus:outline-none bg-center items-center shadow-xs"
-              >
-                Get Free Credit Report
-              </AddLink>
-            ) : (
-              <div className="flex flex-col gap-2 md:flex-row">
-                <RegisterModal />
-                <Button
-                  color="primary"
-                  className="!text-black md:ml-2"
-                  onClick={() => {
-                    fbEvent('home_hero_cta', {
-                      content_name: 'talk to an agent',
-                      content_category: 'user_interaction',
-                      value: 1,
-                    });
+    <div className="flex flex-row flex-wrap gap-4 items-center justify-between bg-white p-4 rounded-md">
+      <div>
+        <div className="text-4xl mb-6 text-black">Find Agent with one click</div>
+        <input
+          className="border border-gray-300 rounded p-2 w-64 text-black"
+          placeholder="City/Zip Code"
+          onChange={(event) => setZipCode(event.target.value)}
+        />
+        <Select
+          id="language-select"
+          options={languageOptions}
+          placeholder="Select Language"
+          onChange={(selectedOption) => {
+            setLanguage(selectedOption.value);
+          }}
+          className="my-6"
+        />
 
-                    gtagEvent({
-                      action: 'home_hero_cta',
-                      category: 'user_interaction',
-                      label: 'talk to an agent',
-                      value: 1,
-                    });
-                    router.push({ pathname: `${router.pathname}/find-an-agent` });
-                  }}
-                >
-                  Talk To Live Agent
-                </Button>
-              </div>
-            )}
-          </div>
-        </div>
-        <div className="w-full md:w-1/2 text-white z-10 mx-4 my-8">
-          <Header as="h3" className="font-bold leading-tight mt-4 text-blue-500">
-            Assisting Buyers in Discovering Their Dream Home
-          </Header>
-          <p className="text-lg text-black leading-tight max-w-sm pt-2 pb-4 md:max-w-none md:pb-0">
-            Our platform simplifies the path to homeownership for first-time buyers with expert
-            guidance, comprehensive listings, and transparent financial assistance.
-          </p>
-          <Header as="h3" className="font-bold leading-tight mt-4 text-blue-500">
-            Connecting Home Buyers with Top-Producing Agents in Your Area
-          </Header>
-          <p className="text-lg text-black leading-tight max-w-sm pt-2 md:max-w-none">
-            Our platform streamlines the process of matching home buyers with top-producing agents,
-            ensuring you find the best fit for your needs.
-          </p>
-        </div>
+        {/* Buyer/Seller Agent Select */}
+        <Select
+          id="agent-type-select"
+          options={agentOptions}
+          placeholder="Select Agent Type"
+          onChange={(selectedOption) => {
+            setSpecial(selectedOption?.value);
+          }}
+          className="my-6"
+        />
+        <Switch label="Online" />
+        <Button onClick={handleClick} color="secondary" className="mt-6" loading={loading}>
+          Find Agent
+        </Button>
+      </div>
+      <div>
+        {!realtor ? (
+          <div className="text-2xl text-black">Try Me</div>
+        ) : (
+          <AddLink to={`/agent/${realtor?.data?.userName}`}>
+            <Image
+              width={400}
+              height={200}
+              style={{ width: '400px', height: '200px' }}
+              src={realtor?.data?.photo || ''}
+              alt="Find Nearby Agent"
+            />
+            <div className="my-2 flex flex-col gap-2 text-black">
+              <div className="text-2xl font-bold">{realtor?.data?.name || ''}</div>
+              <div>{realtor?.data?.phone || ''}</div>
+              <div className="text-sm font-italic">{realtor?.data?.location || ''}</div>
+            </div>
+          </AddLink>
+        )}
       </div>
     </div>
   );

@@ -52,45 +52,27 @@ export const communities = [
 export const navLinks = [
   {
     id: '/find-an-agent',
-    title: 'Find An Agent',
-  },
-  {
-    id: '/find-homes',
-    title: 'Search Homes',
+    title: 'Agent Services',
   },
   {
     id: '/grants',
-    title: 'Find Loan Programs',
+    title: 'Loan Programs',
   },
   {
     id: '/event-center',
-    title: 'Find Nearby Events',
+    title: 'Seminars',
   },
-  /*{
-    id: '/tools',
-    title: 'AI Tools',
-  },*/
   {
-    id: '/resources',
-    title: 'Resources',
-    dropdown: [
-      {
-        id: '/blogs',
-        title: 'Blogs',
-      },
-      {
-        id: '/valuation',
-        title: 'Free Home Valuation',
-      },
-      {
-        id: '/mortgage-calculator',
-        title: 'Mortgage Calculator',
-      },
-    ],
+    id: 'https://join.homeactions.net/signup/MontrellJubilee',
+    title: 'Newsletter',
+  },
+  {
+    id: '/blogs',
+    title: 'Blogs',
   },
   {
     id: '/mission',
-    title: 'Mission Statement',
+    title: 'About',
   },
 ];
 
@@ -182,16 +164,16 @@ export const footerLinks = [
         href: '/blogs',
       },
       {
-        name: 'Contact',
-        href: '/contact',
-      },
-      {
         href: '/services',
         name: 'For Agents',
       },
       {
         href: 'https://join.homeactions.net/signup/MontrellJubilee',
         name: 'Newsletter',
+      },
+      {
+        name: 'Contact',
+        email: 'contact@friendlyrealtor.app',
       },
     ],
   },
