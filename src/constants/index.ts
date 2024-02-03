@@ -55,10 +55,6 @@ export const navLinks = [
     title: 'Find An Agent',
   },
   {
-    id: '/find-homes',
-    title: 'Search Homes',
-  },
-  {
     id: '/grants',
     title: 'Find Loan Programs',
   },
@@ -66,27 +62,17 @@ export const navLinks = [
     id: '/event-center',
     title: 'Find Nearby Events',
   },
+  {
+    id: 'https://join.homeactions.net/signup/MontrellJubilee',
+    title: 'Join Newsletter',
+  },
   /*{
     id: '/tools',
     title: 'AI Tools',
   },*/
   {
-    id: '/resources',
-    title: 'Resources',
-    dropdown: [
-      {
-        id: '/blogs',
-        title: 'Blogs',
-      },
-      {
-        id: '/valuation',
-        title: 'Free Home Valuation',
-      },
-      {
-        id: '/mortgage-calculator',
-        title: 'Mortgage Calculator',
-      },
-    ],
+    id: '/blogs',
+    title: 'Blogs',
   },
   {
     id: '/mission',
@@ -180,10 +166,6 @@ export const footerLinks = [
       {
         name: 'Blogs',
         href: '/blogs',
-      },
-      {
-        name: 'Contact',
-        href: '/contact',
       },
       {
         href: '/services',

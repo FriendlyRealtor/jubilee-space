@@ -24,7 +24,7 @@ const MissionPage = () => {
         <div className="bg-white p-6 rounded-lg shadow-md mb-8">
           <div className="flex items-center mb-4">
             <div className="w-1/4">
-              <Image src={montrell} alt="JubileeSpace Agent Montrell" className="rounded-full" />
+              <Image src={montrell} alt="JubileeSpace Agent Montrell" className="rounded-full h-48" />
             </div>
             <div className="w-3/4 pl-4">
               <h2 className="text-2xl font-semibold text-gray-900">

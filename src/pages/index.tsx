@@ -59,28 +59,11 @@ const HomePage = () => {
         subTitle="Be sure to check your credit shore to see what you can qualify for."
         showRegister
       />
-      <div className="mt-6">
-        <Header as="h2" className="text-white">
-          Quickly Find Your Next Home
-        </Header>
-        <div className="flex flex-wrap flex-row justify-between my-6">
-          {realEstateMarkets.map((market) => (
-            <Button
-              onClick={() => {
-                router.push(`/listing-report?id=${market.id}`);
-              }}
-              color="secondary"
-              className="text-2xl text-white"
-            >
-              <div>{market.name}</div>
-            </Button>
-          ))}
-        </div>
-        {/*<QuickSearch />*/}
-      </div>
-      <div className="flex flex-row flex-wrap justify-between gap-2">
+      <div className='text-6xl my-6'>Find Top Local </div>
+      <div className='text-6xl my-6'>Home Buying Programs</div>
+      <div className="flex flex-col justify-between gap-2">
         <AddLink
-          className="my-8 transition-transform transform hover:-translate-y-2"
+          className="mb-8 transition-transform transform hover:-translate-y-2"
           to="/grants/maryland-smartbuy-program"
         >
           <Header as="h3" className="my-8">
