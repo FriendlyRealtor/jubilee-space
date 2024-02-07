@@ -46,31 +46,31 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         btnBgColorHover = 'hover:bg-blue-400';
         break;
       case 'blue':
-        btnBgColor = 'bg-endeavors-blue-700 text-white';
-        btnBgColorHover = 'hover:bg-endeavors-blue-600';
+        btnBgColor = 'bg-blue-700 text-white';
+        btnBgColorHover = 'hover:bg-blue-600';
         break;
       case 'gray':
-        btnBgColor = 'bg-endeavors-gray-400 text-white';
-        btnBgColorHover = 'hover:bg-endeavors-gray-300';
+        btnBgColor = 'bg-gray-400 text-white';
+        btnBgColorHover = 'hover:bg-gray-300';
         break;
       case 'green':
-        btnBgColor = 'bg-endeavors-green-500 text-white';
-        btnBgColorHover = 'hover:bg-endeavors-green-400';
+        btnBgColor = 'bg-green-500 text-white';
+        btnBgColorHover = 'hover:bg-green-400';
         break;
       case 'red':
-        btnBgColor = 'bg-endeavors-red-400 text-white';
-        btnBgColorHover = 'hover:bg-endeavors-red-300';
+        btnBgColor = 'bg-red-400 text-white';
+        btnBgColorHover = 'hover:bg-red-300';
         break;
       case 'black':
-        btnBgColor = 'bg-endeavors-gray-400';
-        btnBgColorHover = 'hover:bg-endeavors-gray-300';
+        btnBgColor = 'bg-gray-400';
+        btnBgColorHover = 'hover:bg-gray-300';
         break;
       case 'transparent':
         btnBgColor = 'bg-transparent';
         break;
       default:
-        btnBgColor = 'bg-endeavors-blue-700 text-white';
-        btnBgColorHover = 'hover:bg-endeavors-blue-600';
+        btnBgColor = 'bg-blue-700 text-white';
+        btnBgColorHover = 'hover:bg-blue-600';
     }
 
     const handleClick = () => {

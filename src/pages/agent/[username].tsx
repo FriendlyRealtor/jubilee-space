@@ -26,6 +26,7 @@ const ProfilePage = ({ data }) => {
   const [userDoc, setUserDoc] = useState(null);
   const [rating, setRating] = useState(0);
   const [reviewText, setReviewText] = useState('');
+  const [copied, setCopied] = useState(false);
 
   if (!data || !data.name) {
     return <p className="text-white text-4xl flex justify-center">No Profile Found!</p>;
@@ -162,6 +163,8 @@ const ProfilePage = ({ data }) => {
       : ''
   }. Trustworthy guidance and exceptional service for a seamless home buying experience. Let's make your homeownership dreams a reality.`;
 
+  const firstName = data?.name?.split(' ')[0];
+
   return (
     <Container
       seoProps={{
@@ -169,119 +172,131 @@ const ProfilePage = ({ data }) => {
         description: `${data.bio || defaultSeoBio}`,
       }}
     >
-      <div className="flex">
-        <div className="bg-white overflow-auto rounded-lg w-full">
-          <div className="p-10">
-            <Header as="h3" className="uppercase text-gray-500">
-              Real Estate Agent
-            </Header>
-            {data.socials && (
-              <div className="flex justify-center mt-3 mb-6 flex-col">
-                <Header as="h5" className=" text-gray-500">
-                  Get Connected
-                </Header>
-                <div className="text-black flex mt-2 gap-4">
-                  {Object.keys(data.socials[0]).map((social) => {
-                    const socialLink = data.socials[0][social];
-                    return (
-                      <AddLink to={socialLink} target="_blank" key={socialLink}>
-                        <Icon name={social} size="large" color="black" />
-                      </AddLink>
-                    );
-                  })}
-                </div>
+      <div className="container px-4 md:px-6">
+        <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_700px]">
+          <div className="flex flex-col gap-2">
+            <div className="space-y-2">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">{data.name}</h1>
+              <p className="text-gray-500 dark:text-gray-400">{data.location}</p>
+            </div>
+            {data?.services?.length && (
+              <div className="space-y-2">
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr className="bg-blue-500">
+                      <th className="text-left">Service</th>
+                      <th className="text-left">Description</th>
+                      <th className="text-right">Price</th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white text-black">
+                    {data.services.map((service) => {
+                      return (
+                        <tr className="px-2">
+                          <td>{service.name}</td>
+                          <td>{service.description}</td>
+                          {service.price ? (
+                            <td className="text-right">${service.price}</td>
+                          ) : (
+                            'Free'
+                          )}
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
               </div>
             )}
-          </div>
-          <div className="flex flex-col-reverse md:flex-row justify-between px-4 pt-10 pb-6 md:pb-10 items-center gap-6">
-            <div className="max-w-3xl">
-              <Header as="h3" className="text-black text-center mt-5">
-                {data.name}
-              </Header>
-              {data.video && (
-                <div className="flex flex-col items-center mt-6">
-                  <iframe
-                    width="560"
-                    height="315"
-                    src={data.video}
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              )}
-              {data.serviceZipCodes && data.serviceZipCodes.length > 0 ? (
-                <div className="text-gray-500 text-center text-md mt-4">
-                  Serving the following locations: {data.serviceZipCodes.join(', ')}
-                </div>
-              ) : (
-                data.location && (
-                  <div className="text-gray-500 text-center text-md">
-                    Serving the following locations: {data.location}
-                  </div>
-                )
-              )}
-              <div className="text-gray-500 text-sm p-4 text-center max-sm overflow-hidden">
-                {data.bio || defaultBio}
-              </div>
-            </div>
-            <div>
-              <Image src={data.photo} width={300} height={300} alt="" className="pb-4" />
-              {data.phone && <div className="text-gray-500">{`Phone number: ${data.phone}`}</div>}
+            <div className="flex items-center gap-2 mt-4">
               <SendMessageModal userID={userID} />
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(window.location.href);
+                  setCopied(true);
+                  // You might want to add a timeout to reset the state after a certain duration
+                  setTimeout(() => {
+                    setCopied(false);
+                  }, 2000); // Reset after 2 seconds
+                }}
+                className="flex items-center px-3 py-1 text-sm text-gray-700 bg-gray-200 rounded hover:bg-gray-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 mr-1"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M14 5a2 2 0 00-2-2H8a2 2 0 00-2 2v1h8V5zM6 8H4a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-2h1a2 2 0 002-2V8a2 2 0 00-2-2H6z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Share Profile
+                {copied && <span className="ml-2 text-green-500">Link copied!</span>}
+              </button>
             </div>
           </div>
-          {data.deals && (
-            <div className="text-gray-500 px-4 pb-6">
-              <Header as="h3" className="pb-4">
-                Previous Deals
-              </Header>
-              {data.deals.map((deal) => {
-                const closingDate = moment.unix(deal.closingDate.seconds);
-                const formattedDate = closingDate.format('MMMM D, YYYY');
-                return (
-                  <div>
-                    <div className="font-md">Address - {deal.address}</div>
-                    <div className="font-md">Closing Date - {formattedDate}</div>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-          <div className="px-4 pb-6">
-            <StarRating
-              rating={rating}
-              reviewText={reviewText}
-              showAddReview
-              onRatingChange={(val) => {
-                setRating(val);
-              }}
-              onReviewTextChange={(val) => {
-                setReviewText(val);
-              }}
+          <div className="flex items-center justify-center rounded-xl overflow-hidden">
+            <Image
+              src={data.photo}
+              alt={`${data.name} profile image`}
+              width="700"
+              height="420"
+              className="aspect-video object-cover object-center rounded-xl"
             />
-            <Button color="secondary" className="mt-2" onClick={addReview} loading={saving}>
-              Add Review
-            </Button>
-          </div>
-          {/* Display the reviews */}
-          <div className="px-4 pb-6">
-            {reviews?.length > 0 ? (
-              <div className="text-gray-500">
-                <h3 className="font-bold mb-2 text-lg">User Reviews:</h3>
-                {reviews.map((review, index) => (
-                  <div key={index} className="border p-4 rounded-lg mb-4">
-                    <StarRating rating={review.rating} />
-                    <p className="text-gray-500 mt-2">Review: {review.text}</p>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <p className="text-gray-500">No reviews available for this user.</p>
-            )}
           </div>
         </div>
+      </div>
+      <div className="container grid max-w-6xl items-start px-4 py-12 gap-10 sm:grid-cols-2 md:px-6 lg:gap-16 xl:grid-cols-3">
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <h3 className="text-xl font-bold">About {firstName}</h3>
+            <p className="text-gray-500 dark:text-gray-400">{data.bio || defaultBio}</p>
+          </div>
+          <div className="space-y-2">
+            <h3 className="text-xl font-bold">Contact Information</h3>
+            <dl className="grid grid-cols-2 gap-1 text-sm font-medium list-inside list-disc text-gray-500 dark:text-gray-400">
+              <div>Email</div>
+              <div>Phone</div>
+              {data.emailAddress && <div>{data.emailAddress}</div>}
+              {data.phone && <div>{data.phone}</div>}
+            </dl>
+          </div>
+        </div>
+
+        {data.skills?.length && (
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <ul className="grid gap-2 text-sm text-gray-400 font-medium">
+                <h3 className="text-xl font-bold">Skills & Expertise</h3>
+                {data.skills.map((skill) => {
+                  return <li>{skill.name}</li>;
+                })}
+              </ul>
+            </div>
+          </div>
+        )}
+        {reviews?.length > 0 && (
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <h3 className="text-xl font-bold">Testimonials</h3>
+              <div className="grid gap-2">
+                {reviews.slice(0, 2).map((review, index) => (
+                  <blockquote
+                    key={index}
+                    className="text-sm text-gray-500 leading-6 italic md:text-base lg:text-lg xl:text-xl dark:text-gray-400"
+                  >
+                    {review.text}
+                    <footer className="text-gray-500 italic dark:text-gray-400">
+                      — Satisfied HomeBuyer
+                    </footer>
+                  </blockquote>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </Container>
   );

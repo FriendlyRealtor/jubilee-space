@@ -50,63 +50,73 @@ const FindAnAgentPage = ({ users }) => {
   return (
     <Container
       seoProps={{
-        title: 'JubileeSpace - Discover a Friendly Agent in your area',
+        title: 'JubileeSpace - Real Estate Agents in Your Neighborhood',
         description:
-          'Discover your ideal real estate agent to navigate the home buying process with confidence. Explore options and find expert guidance today!',
+          ' Connecting you with the best real estate agents in your area. At JubileeSpace, we make finding your dream home a breeze.',
       }}
     >
-      <div className="text-center pb-8">
-        <Header as="h1">Discover Your Friendly Agent in the Neighborhood</Header>
-        <div className="text-lg mt-2">
-          Welcome to JubileeSpace, your trusted platform for connecting with top-notch real estate
-          professionals in your area. Whether you're buying, selling, or just exploring, we're here
-          to make your real estate journey seamless and enjoyable.
+      <div className="w-full py-12">
+        <div className="container grid gap-4 px-4 text-center md:px-6">
+          <div className="space-y-2">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+              Real Estate Agents in Your Neighborhood
+            </h1>
+            <p className="mx-auto max-w-[800px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+              Connecting you with the best real estate agents in your area. At JubileeSpace, we make
+              finding your dream home a breeze.
+            </p>
+          </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {currentRealtors.map((realtor) => (
-          <div id={realtor.id} className="text-center">
-            <div className="max-w-xs mx-auto h-full bg-gray-500 rounded-lg shadow-md overflow-hidden">
-              <Link href={`/agent/${realtor.data.username || realtor.data.userName}`}>
-                {' '}
-                <Image src={realtor.data.photo || ''} size="w-full h-64" />
-                <div className="p-4">
-                  <Header as="h4" className="font-semibold mb-2">
-                    {realtor.data.name}
-                  </Header>
-                  {realtor.data.location && (
-                    <p className="mt-2">{`Location: ${realtor.data.location}`}</p>
-                  )}
-                </div>
-              </Link>
+      <div className="w-full py-12">
+        <div className="container grid md:gap-6">
+          <div className="mx-auto grid max-w-md items-start gap-2 md:max-w-none md:grid-cols-2 lg:gap-4 xl:grid-cols-3">
+            {realtors?.length &&
+              realtors.map((realtor) => {
+                return (
+                  <div
+                    className="rounded-lg border bg-card text-card-foreground shadow-sm w-full flex flex-col gap-2 h-[320px]"
+                    data-v0-t="card"
+                    key={realtor.id}
+                  >
+                    <div className="flex flex-col space-y-1.5 p-6 pb-0">
+                      <div className="space-y-2">
+                        <h2 className="text-xl font-bold">{realtor.data.name}</h2>
+                      </div>
+                    </div>
+                    {realtor.data.bio && (
+                      <div className="p-6 pt-0">
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                          {realtor.data.bio.length > 150
+                            ? realtor.data.bio.slice(0, 150) + '...'
+                            : realtor.data.bio}
+                        </p>
+                      </div>
+                    )}
 
-              <div className="mb-4">
-                <SendMessageModal userID={realtor.id} />
-              </div>
-            </div>
+                    {realtor.data?.services?.length > 0 && (
+                      <div>
+                        <div className='text-center mb-4 text-md'>Services Offered</div>
+                        <div className="flex justify-around items-center flex-wrap">
+                          {realtor.data.services.map((service) => {
+                            return <div className="text-white bg-blue-500 px-2 text-sm font-medium">{service.name}</div>;
+                          })}
+                        </div>
+                      </div>
+                    )}
+                    <div className="flex items-center p-6">
+                      <Link
+                        href={`/agent/${realtor.data.userName}`}
+                        className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full"
+                      >
+                        View Profile
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })}
           </div>
-        ))}
-      </div>
-      <div className="flex justify-center mt-4">
-        {realtors.length > realtorsPerPage && (
-          <ul className="flex gap-4">
-            {Array(Math.ceil(realtors.length / realtorsPerPage))
-              .fill()
-              .map((_, index) => (
-                <li
-                  key={index}
-                  className={`px-2 bg-white rounded-xl ${
-                    currentPage === index + 1 ? '!bg-blue-500 !text-white' : ''
-                  }`}
-                  onClick={() => paginate(index + 1)}
-                >
-                  <button className={`focus:outline-none`}>
-                    <p className="text-black">{index + 1}</p>
-                  </button>
-                </li>
-              ))}
-          </ul>
-        )}
+        </div>
       </div>
     </Container>
   );
