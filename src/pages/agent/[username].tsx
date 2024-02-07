@@ -165,7 +165,6 @@ const ProfilePage = ({ data }) => {
 
   const firstName = data?.name?.split(' ')[0];
 
-  console.log(data);
   return (
     <Container
       seoProps={{
