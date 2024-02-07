@@ -165,6 +165,7 @@ const ProfilePage = ({ data }) => {
 
   const firstName = data?.name?.split(' ')[0];
 
+  console.log(data);
   return (
     <Container
       seoProps={{
@@ -248,29 +249,41 @@ const ProfilePage = ({ data }) => {
           </div>
         </div>
       </div>
-      <div className="container grid max-w-6xl items-start px-4 py-12 gap-10 sm:grid-cols-2 md:px-6 lg:gap-16 xl:grid-cols-3">
-        <div className="space-y-4">
+      <div className="flex flex-row justify-between py-8">
+        <div className='max-w-sm'>
           <div className="space-y-2">
             <h3 className="text-xl font-bold">About {firstName}</h3>
             <p className="text-gray-500 dark:text-gray-400">{data.bio || defaultBio}</p>
           </div>
-          <div className="space-y-2">
+          <div className="py-6">
             <h3 className="text-xl font-bold">Contact Information</h3>
-            <dl className="grid grid-cols-2 gap-1 text-sm font-medium list-inside list-disc text-gray-500 dark:text-gray-400">
-              <div>Email</div>
-              <div>Phone</div>
-              {data.emailAddress && (
-                <div className="flex flex-wrap">
-                  <div className="max-w-xs">{data.emailAddress}</div>
-                </div>
-              )}
-              {data.phone && <div>{data.phone}</div>}
-            </dl>
+            <div className="flex flex-row text-sm font-medium list-inside list-disc text-gray-500 dark:text-gray-400">
+              <div className="flex flex-col gap-2">
+                <div className="text-white text-md">Email</div>
+                {data.emailAddress && <div className="mr-8">{data.emailAddress}</div>}
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="text-white text-md">Phone</div>
+                {data.phone && <div>{data.phone}</div>}
+              </div>
+            </div>
           </div>
         </div>
-
+        {data.video && (
+          <div>
+            <iframe
+              width="560"
+              height="315"
+              src={data.video}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        )}
         {data.skills?.length && (
-          <div className="space-y-4">
+          <div>
             <div className="space-y-2">
               <ul className="grid gap-2 text-sm text-gray-400 font-medium">
                 <h3 className="text-xl font-bold">Skills & Expertise</h3>
@@ -282,7 +295,7 @@ const ProfilePage = ({ data }) => {
           </div>
         )}
         {reviews?.length > 0 && (
-          <div className="space-y-4">
+          <div>
             <div className="space-y-2">
               <h3 className="text-xl font-bold">Testimonials</h3>
               <div className="grid gap-2">
