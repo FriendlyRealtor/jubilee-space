@@ -96,10 +96,14 @@ const FindAnAgentPage = ({ users }) => {
 
                     {realtor.data?.services?.length > 0 && (
                       <div>
-                        <div className='text-center mb-4 text-md'>Services Offered</div>
+                        <div className="text-center mb-4 text-md">Services Offered</div>
                         <div className="flex justify-around items-center flex-wrap">
                           {realtor.data.services.map((service) => {
-                            return <div className="text-white bg-blue-500 px-2 text-sm font-medium">{service.name}</div>;
+                            return (
+                              <div className="text-white bg-blue-500 px-2 text-sm font-medium">
+                                {service.name}
+                              </div>
+                            );
                           })}
                         </div>
                       </div>
