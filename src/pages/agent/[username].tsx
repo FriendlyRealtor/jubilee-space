@@ -259,7 +259,11 @@ const ProfilePage = ({ data }) => {
             <dl className="grid grid-cols-2 gap-1 text-sm font-medium list-inside list-disc text-gray-500 dark:text-gray-400">
               <div>Email</div>
               <div>Phone</div>
-              {data.emailAddress && <div>{data.emailAddress}</div>}
+              {data.emailAddress && (
+                <div className="flex flex-wrap">
+                  <div className="max-w-xs">{data.emailAddress}</div>
+                </div>
+              )}
               {data.phone && <div>{data.phone}</div>}
             </dl>
           </div>
