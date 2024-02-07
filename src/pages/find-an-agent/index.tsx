@@ -73,9 +73,10 @@ const FindAnAgentPage = ({ users }) => {
           <div className="mx-auto grid max-w-md items-start gap-2 md:max-w-none md:grid-cols-2 lg:gap-4 xl:grid-cols-3">
             {realtors?.length &&
               realtors.map((realtor) => {
+                const defaultBio = `Experienced agent ${realtor.data.name} offering discounted services to assist home buyers in realizing their homeownership dreams. With a commitment to affordability and quality service, I provide trustworthy guidance for a seamless home buying experience. Let's work together to find your dream home and make it a reality.`;
                 return (
                   <div
-                    className="rounded-lg border bg-card text-card-foreground shadow-sm w-full flex flex-col gap-2 h-[320px]"
+                    className="rounded-lg border bg-card text-card-foreground shadow-sm w-full flex flex-col justify-between gap-2 h-[320px]"
                     data-v0-t="card"
                     key={realtor.id}
                   >
@@ -84,7 +85,7 @@ const FindAnAgentPage = ({ users }) => {
                         <h2 className="text-xl font-bold">{realtor.data.name}</h2>
                       </div>
                     </div>
-                    {realtor.data.bio && (
+                    {realtor.data.bio ? (
                       <div className="p-6 pt-0">
                         <p className="text-sm text-gray-500 dark:text-gray-400">
                           {realtor.data.bio.length > 150
@@ -92,14 +93,24 @@ const FindAnAgentPage = ({ users }) => {
                             : realtor.data.bio}
                         </p>
                       </div>
+                    ) : (
+                      <div className="p-6 pt-0">
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                          {defaultBio.length > 150 ? defaultBio.slice(0, 150) + '...' : defaultBio}
+                        </p>
+                      </div>
                     )}
 
                     {realtor.data?.services?.length > 0 && (
                       <div>
-                        <div className='text-center mb-4 text-md'>Services Offered</div>
+                        <div className="text-center mb-4 text-md">Services Offered</div>
                         <div className="flex justify-around items-center flex-wrap">
                           {realtor.data.services.map((service) => {
-                            return <div className="text-white bg-blue-500 px-2 text-sm font-medium">{service.name}</div>;
+                            return (
+                              <div className="text-white bg-blue-500 px-2 text-sm font-medium">
+                                {service.name}
+                              </div>
+                            );
                           })}
                         </div>
                       </div>
