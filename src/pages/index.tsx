@@ -20,7 +20,7 @@ const HomePage = () => {
         <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:px-6">
           <div className="space-y-2 text-center">
             <h1 className="text-3xl mb-8 font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Buy a home without the realtor
+              Buy a home without an agent
             </h1>
             <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
               No agent? No worries. Secure your dream home with our platform offering discounted
