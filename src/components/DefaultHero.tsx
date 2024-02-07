@@ -85,56 +85,7 @@ const DefaultHero = (props: HeroProps) => {
   return (
     <div className="flex flex-row flex-wrap gap-4 items-center justify-between bg-white p-4 rounded-md">
       <div>
-        <div className="text-4xl mb-6 text-black">Find Agent with one click</div>
-        <input
-          className="border border-gray-300 rounded p-2 w-64 text-black"
-          placeholder="City/Zip Code"
-          onChange={(event) => setZipCode(event.target.value)}
-        />
-        <Select
-          id="language-select"
-          options={languageOptions}
-          placeholder="Select Language"
-          onChange={(selectedOption) => {
-            setLanguage(selectedOption.value);
-          }}
-          className="my-6"
-        />
-
-        {/* Buyer/Seller Agent Select */}
-        <Select
-          id="agent-type-select"
-          options={agentOptions}
-          placeholder="Select Agent Type"
-          onChange={(selectedOption) => {
-            setSpecial(selectedOption?.value);
-          }}
-          className="my-6"
-        />
-        <Switch label="Online" />
-        <Button onClick={handleClick} color="secondary" className="mt-6" loading={loading}>
-          Find Agent
-        </Button>
-      </div>
-      <div>
-        {!realtor ? (
-          <div className="text-2xl text-black">Try Me</div>
-        ) : (
-          <AddLink to={`/agent/${realtor?.data?.userName}`}>
-            <Image
-              width={400}
-              height={200}
-              style={{ width: '400px', height: '200px' }}
-              src={realtor?.data?.photo || ''}
-              alt="Find Nearby Agent"
-            />
-            <div className="my-2 flex flex-col gap-2 text-black">
-              <div className="text-2xl font-bold">{realtor?.data?.name || ''}</div>
-              <div>{realtor?.data?.phone || ''}</div>
-              <div className="text-sm font-italic">{realtor?.data?.location || ''}</div>
-            </div>
-          </AddLink>
-        )}
+        <div className="text-4xl mb-6 text-black">Buy a home without the realtor</div>
       </div>
     </div>
   );

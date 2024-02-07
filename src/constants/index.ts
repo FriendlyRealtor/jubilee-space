@@ -51,29 +51,29 @@ export const communities = [
 
 export const navLinks = [
   {
-    id: '/find-an-agent',
-    title: 'Agent Services',
-  },
-  {
-    id: '/grants',
-    title: 'Loan Programs',
-  },
-  {
-    id: '/event-center',
-    title: 'Seminars',
-  },
-  {
-    id: 'https://join.homeactions.net/signup/MontrellJubilee',
-    title: 'Newsletter',
-  },
-  {
-    id: '/blogs',
-    title: 'Blogs',
-  },
-  {
     id: '/mission',
     title: 'About',
   },
+  {
+    id: '/find-an-agent',
+    title: 'For Homebuyers',
+  },
+  {
+    id: '/services',
+    title: 'For Agents',
+  },
+  {
+    id: '/event-center',
+    title: 'Local Events',
+  },
+  /*{
+    id: 'https://join.homeactions.net/signup/MontrellJubilee',
+    title: 'Newsletter',
+  },*/
+  /*{
+    id: '/blogs',
+    title: 'Blogs',
+  },*/
 ];
 
 export const features = [
@@ -166,6 +166,10 @@ export const footerLinks = [
       {
         href: '/services',
         name: 'For Agents',
+      },
+      {
+        href: '/grants',
+        name: 'Loan Programs',
       },
       {
         href: 'https://join.homeactions.net/signup/MontrellJubilee',
