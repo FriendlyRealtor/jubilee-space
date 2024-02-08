@@ -177,7 +177,14 @@ const ProfilePage = ({ data }) => {
           <div className="flex flex-col gap-2">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">{data.name}</h1>
-              <p className="text-gray-500 dark:text-gray-400">{data.location}</p>
+              {data.company && (
+                <p className="text-gray-500 dark:text-gray-400">Company: {data.company}</p>
+              )}
+              {data.location && (
+                <p className="text-gray-500 dark:text-gray-400">
+                  Service Location: {data.location}
+                </p>
+              )}
             </div>
             {data?.services?.length && (
               <div className="space-y-2">
@@ -248,27 +255,60 @@ const ProfilePage = ({ data }) => {
           </div>
         </div>
       </div>
+      {data.events?.length && (
+        <div>
+          <div className="text-xl font-bold py-8">Upcoming Events</div>
+          <div className="flex flex-wrap cursor-pointer gap-6">
+            {data.events.map((event, index) => {
+              return <a
+                key={index}
+                className="rounded-lg border bg-card text-card-foreground shadow-sm w-96 hover:bg-blue-500"
+                data-v0-t="card"
+                href={`/event-center/${event.id}`}
+              >
+                <div className="p-6 grid gap-1">
+                  <h3 className="text-lg font-semibold leading-none mb-2">{event.title}</h3>
+                  <p className="text-sm leading-none mb-2">{event.location}</p>
+                  <p className="text-sm leading-none mb-2">{event.organizer}</p>
+                  <p className="text-sm leading-none mb-2">{event.dateStartTime} - {event.dateEndTime}</p>
+                  <p className="text-sm leading-none mb-2">{event.eventDate}</p>
+                </div>
+                <div className="items-center flex p-0">
+                  <div className="flex-1 grid place-items-center py-2 text-sm font-medium">
+                    View
+                  </div>
+                </div>
+              </a>
+})}
+          </div>
+        </div>
+      )}
+
       <div className="flex flex-row justify-between py-8">
-        <div className='max-w-sm'>
+        <div className="max-w-sm">
           <div className="space-y-2">
             <h3 className="text-xl font-bold">About {firstName}</h3>
             <p className="text-gray-500 dark:text-gray-400">{data.bio || defaultBio}</p>
           </div>
           <div className="py-6">
-            <h3 className="text-xl font-bold">Contact Information</h3>
+            <h3 className="text-xl font-bold mb-4">Contact Information</h3>
             <div className="flex flex-row text-sm font-medium list-inside list-disc text-gray-500 dark:text-gray-400">
-              <div className="flex flex-col gap-2">
-                <div className="text-white text-md">Email</div>
-                {data.emailAddress && <div className="mr-8">{data.emailAddress}</div>}
-              </div>
-              <div className="flex flex-col gap-2">
-                <div className="text-white text-md">Phone</div>
-                {data.phone && <div>{data.phone}</div>}
-              </div>
+              {data.emailAddress && (
+                <div className="flex flex-col gap-2">
+                  <div className="text-white text-md">Email</div>
+                  <div className="mr-8">{data.emailAddress}</div>
+                </div>
+              )}
+              {data.phone && (
+                <div className="flex flex-col gap-2">
+                  <div className="text-white text-md">Phone</div>
+                  <div>{data.phone}</div>
+                </div>
+              )}
             </div>
           </div>
         </div>
-        {data.video && (
+        {false && (
           <div>
             <iframe
               width="560"
@@ -341,11 +381,27 @@ export async function getStaticProps(context) {
     const q = query(userRef, where('userName', '==', context.params.username));
     const querySnapshot = await getDocs(q);
 
+    const eventRef = collection(firestore, 'events');
+    const eventQ = query(eventRef);
+    const eventSnapshot = await getDocs(eventQ);
     if (!querySnapshot.empty) {
       // Get the first document from the query snapshot
       const userDocRef = querySnapshot.docs[0];
 
       const result = JSON.parse(JSON.stringify(userDocRef.data()));
+      let eventResult = [];
+
+      if (!eventSnapshot.empty) {
+        eventSnapshot.forEach((doc) => {
+          const eventData = doc.data();
+          if (eventData.createdBy === userDocRef.id) {
+            const value = JSON.parse(JSON.stringify(eventData));
+            value.id = doc.id
+            eventResult.push(value);
+          }
+        });
+        result.events = eventResult;
+      }
 
       if (result.serviceZipCodes?.length) {
         const zipcodes = result.serviceZipCodes.join(',');

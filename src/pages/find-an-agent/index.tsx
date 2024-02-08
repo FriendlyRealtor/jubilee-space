@@ -43,7 +43,18 @@ const FindAnAgentPage = ({ users }) => {
         }
       });
 
-      setRealtors(sortedUsers);
+      // Place the ones that have a.data.services exist at the beginning
+      const finalSortedUsers = sortedUsers.sort((a, b) => {
+        if (a.data.services && !b.data.services) {
+          return -1;
+        } else if (!a.data.services && b.data.services) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+
+      setRealtors(finalSortedUsers);
     }
   }, [users]);
 
