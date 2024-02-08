@@ -255,31 +255,33 @@ const ProfilePage = ({ data }) => {
           </div>
         </div>
       </div>
-      {data.events?.length && (
+      {data.events?.length > 0 && (
         <div>
           <div className="text-xl font-bold py-8">Upcoming Events</div>
           <div className="flex flex-wrap cursor-pointer gap-6">
             {data.events.map((event, index) => {
-              return <a
-                key={index}
-                className="rounded-lg border bg-card text-card-foreground shadow-sm w-96 hover:bg-blue-500"
-                data-v0-t="card"
-                href={`/event-center/${event.id}`}
-              >
-                <div className="p-6 grid gap-1">
-                  <h3 className="text-lg font-semibold leading-none mb-2">{event.title}</h3>
-                  <p className="text-sm leading-none mb-2">{event.location}</p>
-                  <p className="text-sm leading-none mb-2">{event.organizer}</p>
-                  <p className="text-sm leading-none mb-2">{event.dateStartTime} - {event.dateEndTime}</p>
-                  <p className="text-sm leading-none mb-2">{event.eventDate}</p>
-                </div>
-                <div className="items-center flex p-0">
-                  <div className="flex-1 grid place-items-center py-2 text-sm font-medium">
-                    View
+              return (
+                <a
+                  className="rounded-lg border bg-card text-card-foreground shadow-sm w-96 hover:bg-blue-500"
+                  href={`/event-center/${event.id}`}
+                >
+                  <div className="p-6 grid gap-1">
+                    <h3 className="text-lg font-semibold leading-none mb-2">{event.title}</h3>
+                    <p className="text-sm leading-none mb-2">{event.location}</p>
+                    <p className="text-sm leading-none mb-2">{event.organizer}</p>
+                    <p className="text-sm leading-none mb-2">
+                      {event.dateStartTime} - {event.dateEndTime}
+                    </p>
+                    <p className="text-sm leading-none mb-2">{event.eventDate}</p>
                   </div>
-                </div>
-              </a>
-})}
+                  <div className="items-center flex p-0">
+                    <div className="flex-1 grid place-items-center py-2 text-sm font-medium">
+                      View
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
       )}
@@ -396,7 +398,7 @@ export async function getStaticProps(context) {
           const eventData = doc.data();
           if (eventData.createdBy === userDocRef.id) {
             const value = JSON.parse(JSON.stringify(eventData));
-            value.id = doc.id
+            value.id = doc.id;
             eventResult.push(value);
           }
         });
