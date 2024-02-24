@@ -87,7 +87,7 @@ const FindAnAgentPage = ({ users }) => {
                 const defaultBio = `Experienced agent ${realtor.data.name} offering discounted services to assist home buyers in realizing their homeownership dreams. With a commitment to affordability and quality service, I provide trustworthy guidance for a seamless home buying experience. Let's work together to find your dream home and make it a reality.`;
                 return (
                   <div
-                    className="rounded-lg border bg-card text-card-foreground shadow-sm w-full flex flex-col justify-between gap-2 h-[320px]"
+                    className="rounded-lg h-auto border bg-card text-card-foreground shadow-sm w-full flex flex-col justify-between gap-2 h-[320px]"
                     data-v0-t="card"
                     key={realtor.id}
                   >
@@ -115,10 +115,10 @@ const FindAnAgentPage = ({ users }) => {
                     {realtor.data?.services?.length > 0 && (
                       <div>
                         <div className="text-center mb-4 text-md">Services Offered</div>
-                        <div className="flex justify-around items-center flex-wrap">
+                        <div className="flex items-center flex-wrap gap-[30px]">
                           {realtor.data.services.map((service) => {
                             return (
-                              <div className="text-white bg-blue-500 px-2 text-sm font-medium">
+                              <div className="text-white bg-blue-500 px-2 mx-2 text-sm font-medium">
                                 {service.name}
                               </div>
                             );

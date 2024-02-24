@@ -13,7 +13,7 @@ const config: DefaultSeoProps = {
       'Discover your dream home with our platform! We specialize in assisting first-time buyers, providing expert guidance and making the home buying process seamless. Find your perfect match while gaining a comprehensive understanding of the journey.',
     images: [
       {
-        url: 'https://images.ctfassets.net/v3wxyl8kvdve/1BO3nXdFLRWPp3SxPyFNtJ/859fc196236bde439457257ec5206a4d/icon.png',
+        url: 'https://images.ctfassets.net/v3wxyl8kvdve/2AGCOrStJnbQsTSqmKLUhS/9a3b20cd39a8df614f53b7f61a71724a/Jubilee_Space_4_C-2.png',
         width: 850,
         height: 650,
         alt: 'JubileeSpace Logo',
