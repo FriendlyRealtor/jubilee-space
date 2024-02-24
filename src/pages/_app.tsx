@@ -119,7 +119,7 @@ export default function App({ Component, pageProps }: AppProps) {
         />
       </noscript>
       <AuthContextProvider>
-        <div className={`flex flex-col items-center justify-between p-12 ${ubuntu.className}`}>
+        <div className={`flex flex-col items-center justify-between ${ubuntu.className}`}>
           <div className={`${styles.boxWidth}`}>
             <Navbar />
           </div>

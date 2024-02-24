@@ -165,12 +165,18 @@ const ProfilePage = ({ data }) => {
 
   const firstName = data?.name?.split(' ')[0];
 
+	console.log(data)
   return (
     <Container
       seoProps={{
         title: `JubileeSpace - Agent ${data.name}`,
         description: `${data.bio || defaultSeoBio}`,
-      }}
+				openGraph: {
+					title: `JubileeSpace - Agent ${data.name}`,
+					description: `${data.bio || defaultSeoBio}`,
+					url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}/agent/${data.userName}`,
+				}
+			}}
     >
       <div className="container px-4 md:px-6">
         <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_700px]">
@@ -214,7 +220,7 @@ const ProfilePage = ({ data }) => {
                 </table>
               </div>
             )}
-            <div className="flex items-center gap-2 mt-4">
+            <div className="flex items-center flex-wrap gap-6 mt-4">
               <SendMessageModal userID={userID} />
               <button
                 onClick={() => {
@@ -243,6 +249,23 @@ const ProfilePage = ({ data }) => {
                 {copied && <span className="ml-2 text-green-500">Link copied!</span>}
               </button>
             </div>
+						<div className="py-6">
+            <h3 className="text-xl font-bold mb-4">Contact Information</h3>
+            <div className="flex flex-row flex-wrap text-sm font-medium list-inside list-disc text-gray-500 dark:text-gray-400">
+              {data.emailAddress && (
+                <div className="flex flex-col gap-2">
+                  <div className="text-white text-md">Email</div>
+                  <div className="mr-8">{data.emailAddress}</div>
+                </div>
+              )}
+              {data.phone && (
+                <div className="flex flex-col gap-2">
+                  <div className="text-white text-md">Phone</div>
+                  <div>{data.phone}</div>
+                </div>
+              )}
+            </div>
+          </div>
           </div>
           <div className="flex items-center justify-center rounded-xl overflow-hidden">
             <Image
@@ -285,29 +308,11 @@ const ProfilePage = ({ data }) => {
           </div>
         </div>
       )}
-
-      <div className="flex flex-row justify-between py-8">
+      <div className="flex flex-row flex-wrap justify-between py-8">
         <div className="max-w-sm">
           <div className="space-y-2">
             <h3 className="text-xl font-bold">About {firstName}</h3>
             <p className="text-gray-500 dark:text-gray-400">{data.bio || defaultBio}</p>
-          </div>
-          <div className="py-6">
-            <h3 className="text-xl font-bold mb-4">Contact Information</h3>
-            <div className="flex flex-row text-sm font-medium list-inside list-disc text-gray-500 dark:text-gray-400">
-              {data.emailAddress && (
-                <div className="flex flex-col gap-2">
-                  <div className="text-white text-md">Email</div>
-                  <div className="mr-8">{data.emailAddress}</div>
-                </div>
-              )}
-              {data.phone && (
-                <div className="flex flex-col gap-2">
-                  <div className="text-white text-md">Phone</div>
-                  <div>{data.phone}</div>
-                </div>
-              )}
-            </div>
           </div>
         </div>
         {false && (
