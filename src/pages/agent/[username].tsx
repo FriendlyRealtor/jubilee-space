@@ -33,37 +33,32 @@ const ProfilePage = ({ data }) => {
   }
 
   useEffect(() => {
-    if (data.userName) {
-      const fetchUserID = async () => {
-        try {
-          const usersCollection = collection(firestore, 'users'); // Replace 'firestore' with your Firestore instance
-          const userQuery = query(usersCollection, where('userName', '==', data.userName));
-          const userQuerySnapshot = await getDocs(userQuery);
+    const fetchUserID = async () => {
+      try {
+        const usersCollection = collection(firestore, 'users'); // Replace 'firestore' with your Firestore instance
+        const userQuery = query(usersCollection, where('userName', '==', data.userName));
+        const userQuerySnapshot = await getDocs(userQuery);
 
-          if (userQuerySnapshot.docs.length > 0) {
-            // Set the user's document ID in the state
-            setUserID(userQuerySnapshot.docs[0].id);
-          }
-        } catch (error) {
-          console.error('Error fetching user document:', error);
+        if (userQuerySnapshot.docs.length > 0) {
+          // Set the user's document ID in the state
+          setUserID(userQuerySnapshot.docs[0].id);
         }
-      };
+      } catch (error) {
+        console.error('Error fetching user document:', error);
+      }
+    };
 
+    fetchUserID();
+  }, [])
+
+  useEffect(() => {
       // Function to fetch reviews for this user from Firestore
       const fetchReviews = async () => {
         try {
-          // Query the 'users' collection to get the user's document
-          const usersCollection = collection(firestore, 'users');
-          const userQuery = query(usersCollection, where('userName', '==', data.userName));
-          const userQuerySnapshot = await getDocs(userQuery);
-
-          if (userQuerySnapshot.docs.length > 0) {
-            // Get the user's document ID
-            const userId = userQuerySnapshot.docs[0].id;
-
+          if (userID) {
             // Query the 'reviews' collection to get reviews for this user using userId as the document ID
             const reviewsCollection = collection(firestore, 'reviews');
-            const userReviewsQuery = doc(reviewsCollection, userId);
+            const userReviewsQuery = doc(reviewsCollection, userID);
             const userReviewsDoc = await getDoc(userReviewsQuery);
 
             if (userReviewsDoc.exists()) {
@@ -76,11 +71,8 @@ const ProfilePage = ({ data }) => {
           console.error('Error fetching reviews:', error);
         }
       };
-
-      fetchUserID();
       fetchReviews();
-    }
-  }, [data.userName]);
+  }, [userID]);
 
   // Function to add a new review to Firestore
   const addReview = async () => {
@@ -165,7 +157,6 @@ const ProfilePage = ({ data }) => {
 
   const firstName = data?.name?.split(' ')[0];
 
-	console.log(data)
   return (
     <Container
       seoProps={{
