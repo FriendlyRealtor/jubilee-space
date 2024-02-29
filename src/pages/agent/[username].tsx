@@ -72,7 +72,6 @@ const ProfilePage = ({ data }) => {
         }
       };
       fetchReviews();
-      console.log(reviews)
   }, [userID]);
 
   // Function to add a new review to Firestore
