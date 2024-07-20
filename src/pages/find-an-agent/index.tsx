@@ -87,45 +87,44 @@ const FindAnAgentPage = ({ users }) => {
                 const defaultBio = `Experienced agent ${realtor.data.name} offering discounted services to assist home buyers in realizing their homeownership dreams. With a commitment to affordability and quality service, I provide trustworthy guidance for a seamless home buying experience. Let's work together to find your dream home and make it a reality.`;
                 return (
                   <div
-                    className="rounded-lg h-auto border bg-card text-card-foreground shadow-sm w-full flex flex-col justify-between gap-2 h-[320px]"
+                    className="rounded-lg border bg-card text-card-foreground shadow-sm w-full flex flex-col justify-between gap-2 h-[320px]"
                     data-v0-t="card"
                     key={realtor.id}
                   >
-                    <div className="flex flex-col space-y-1.5 p-6 pb-0">
+                    <div className="flex flex-col space-y-1.5 p-6 pb-0 flex-grow">
                       <div className="space-y-2">
                         <h2 className="text-xl font-bold">{realtor.data.name}</h2>
                       </div>
+                      {realtor.data.bio ? (
+                        <div className="pt-4">
+                          <p className="text-sm text-gray-500 dark:text-gray-400">
+                            {realtor.data.bio.length > 150
+                              ? realtor.data.bio.slice(0, 150) + '...'
+                              : realtor.data.bio}
+                          </p>
+                        </div>
+                      ) : (
+                        <div className="pt-4">
+                          <p className="text-sm text-gray-500 dark:text-gray-400">
+                            {defaultBio.length > 150 ? defaultBio.slice(0, 150) + '...' : defaultBio}
+                          </p>
+                        </div>
+                      )}
                     </div>
-                    {realtor.data.bio ? (
-                      <div className="p-6 pt-0">
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
-                          {realtor.data.bio.length > 150
-                            ? realtor.data.bio.slice(0, 150) + '...'
-                            : realtor.data.bio}
-                        </p>
-                      </div>
-                    ) : (
-                      <div className="p-6 pt-0">
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
-                          {defaultBio.length > 150 ? defaultBio.slice(0, 150) + '...' : defaultBio}
-                        </p>
-                      </div>
-                    )}
 
                     {realtor.data?.services?.length > 0 && (
-                      <div>
+                      <div className="px-6 py-4 flex-grow">
                         <div className="text-center mb-4 text-md">Services Offered</div>
                         <div className="flex items-center flex-wrap gap-[30px]">
-                          {realtor.data.services.map((service) => {
-                            return (
-                              <div className="text-white bg-blue-500 px-2 mx-2 text-sm font-medium">
-                                {service.name}
-                              </div>
-                            );
-                          })}
+                          {realtor.data.services.map((service) => (
+                            <div key={service.name} className="text-white bg-blue-500 px-2 mx-2 text-sm font-medium">
+                              {service.name}
+                            </div>
+                          ))}
                         </div>
                       </div>
                     )}
+
                     <div className="flex items-center p-6">
                       <Link
                         href={`/agent/${realtor.data.userName}`}
