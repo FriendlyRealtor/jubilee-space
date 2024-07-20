@@ -300,10 +300,10 @@ const ProfilePage = ({ data }) => {
         </div>
       )}
       <div className="flex flex-row flex-wrap justify-between py-8">
-        <div className="max-w-sm">
+        <div className="max-w-lg bg-white p-4 rounded-md">
           <div className="space-y-2">
-            <h3 className="text-xl font-bold">About {firstName}</h3>
-            <p className="text-gray-500 dark:text-gray-400">{data.bio || defaultBio}</p>
+            <h3 className="text-2xl font-bold text-black">About {firstName}</h3>
+            <p className="text-gray-500 font-sm">{data.bio || defaultBio}</p>
           </div>
         </div>
         {false && (
@@ -333,8 +333,8 @@ const ProfilePage = ({ data }) => {
         )}
         {reviews?.length > 0 && (
           <div>
-            <div className="space-y-2">
-              <h3 className="text-xl font-bold">Testimonials</h3>
+            <div className="space-y-2 max-w-lg bg-white rounded-md p-4">
+              <h3 className="text-xl font-bold text-black">Testimonials</h3>
               <div className="grid gap-2">
                 {reviews.slice(0, 2).map((review, index) => (
                   <blockquote
